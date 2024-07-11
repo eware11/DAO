@@ -63,7 +63,7 @@ contract DAO {
         uint256 _amount,
         address payable _recipient
     ) external onlyInvestor {
-        require(address(this).balance >= _amount);
+        require(address(this).balance >= _amount, "Error");
 
         proposalCount++;
 

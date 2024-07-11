@@ -21,8 +21,9 @@ const Create = ({ provider, dao, setIsLoading }) => {
 
       const transaction = await dao.connect(signer).createProposal(name, description, formattedAmount, address)
       await transaction.wait()
-    } catch {
+    } catch (error) {
       window.alert('User rejected or transaction reverted')
+      console.error(error)
     }
 
     setIsLoading(true)
